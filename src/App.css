@@ -1,0 +1,29 @@
+h1 {
+  font-size: 25px;
+}
+.lowestPriceCard {
+  display: flex;
+  align-items: center;
+  margin: 20px;
+  background: #fff;
+  padding: 10px;
+  border-radius: 5px;
+}
+.lowestPriceCard img {
+  margin-right: 20px;
+}
+.noItems {
+  margin-top: 130px;
+  text-align: center;
+}
+.noItems .title {
+  font-size: 20px;
+  padding: 5px;
+}
+
+.homepage {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+}

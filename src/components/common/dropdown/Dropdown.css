@@ -1,0 +1,51 @@
+.dropdownContainer {
+  width: 100%;
+  margin: 20px auto;
+}
+.dropdownContainer .dropdown-btn {
+  width: 100%;
+  background: #d10157;
+  border: none;
+  text-align: left;
+  padding: 10px 15px;
+  outline: none;
+  color: #fff;
+}
+.dropdownContainer .arrow {
+  position: relative;
+}
+.dropdownContainer .arrow.active .carrot {
+  transform: rotate(180deg);
+}
+.dropdownContainer .carrot {
+  content: "";
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 5px 5px 0 5px;
+  border-color: #fff transparent transparent transparent;
+  position: absolute;
+  right: 10px;
+  top: 7px;
+}
+.dropdownContainer .dropdownList {
+  list-style-type: none;
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  border: none;
+  background: white;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+  z-index: 9;
+  overflow: auto;
+  border-radius: 3px;
+}
+.dropdownContainer .dropdownList .option {
+  padding: 5px;
+  cursor: pointer;
+}
+.dropdownContainer .dropdownList .option:hover {
+  color: white;
+  background: #acacac;
+}

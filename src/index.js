@@ -1,0 +1,17 @@
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import App from "./App";
+import { Provider } from "react-redux";
+import { createStore } from "redux";
+import "bootstrap/dist/css/bootstrap.min.css";
+import dataReducer from "./redux/reducers/reducer";
+
+const store = createStore(dataReducer);
+
+ReactDOM.render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById("root")
+);
