@@ -21,17 +21,11 @@ const ProductsPage = () => {
   const { response: categories = [] } = useAxios({ url: "/categories" });
   const { response: products = [] } = useAxios({ url: "/products" });
   const [productsList, setProductsList] = useState(products);
-  console.log(products);
   const { response: buyNowProductResponse } = useAxios({
     url: "/posts",
   });
 
-  // useEffect(() => {}, [dispatch]);
-  // useEffect(() => {
-  //   setProductsList(products);
-  // }, [products]);
-
-  const handleSearch = (e, id) => {
+  const handleSearch = (e) => {
     let searchInput = e.target.value;
     if (searchInput.length >= 2) {
       const filteredProducts = productsList.filter((product) => {
@@ -67,7 +61,6 @@ const ProductsPage = () => {
 
   const sortByKey = (array, key) => {
     return array.sort((a, b) => {
-      console.log("a,bkey", a[key], b[key]);
       let x = a[key];
       let y = b[key];
       return x < y ? -1 : x > y ? 1 : 0;
@@ -148,7 +141,9 @@ const ProductsPage = () => {
                 />
               ))
             ) : (
-              <div>No products found</div>
+              <div className="d-flex p-2 justify-content-center">
+                <h3 style={{ color: "red" }}>Sorry,No product found :(</h3>
+              </div>
             )}
           </div>
           <Toast

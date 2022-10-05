@@ -19,11 +19,9 @@ const Login = () => {
 
   const handleLoginClick = () => {
     const signedUpUser = JSON.parse(localStorage.getItem("signUpUser"));
-    console.log(signedUpUser);
     if (signedUpUser.email === email && signedUpUser.password === password) {
       localStorage.setItem("isLoggedIn", true);
       navigate("/products");
-      // window.location.reload();
     } else {
       alert("invalid email or password");
     }
@@ -44,7 +42,6 @@ const Login = () => {
               id="email formControlLg"
               value={email}
               className="form-control form-control-lg w-75"
-              // className="form-control form-control-lg"
               placeholder="Email"
               onChange={handleChange}
               required
