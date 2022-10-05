@@ -16,7 +16,7 @@ import ProductsPage from "./components/productsPage/ProductsPage";
 import Modal from "./components/common/modal/Modal";
 import MiniCard from "./components/common/miniCard/MiniCard";
 
-const App = () => {
+const App = (props) => {
   const dispatch = useDispatch();
   const [totalAmount, setTotalAmount] = useState(0);
   const [filteredCartItems, setFilteredCartItems] = useState([]);
@@ -28,7 +28,6 @@ const App = () => {
   useEffect(() => {
     setIsLoggedIn(loggedIn);
   }, [loggedIn]);
-
   const calcTotal = (array, param) => {
     let result = array.reduce(function (cnt, o) {
       return cnt + o[param];
@@ -58,6 +57,11 @@ const App = () => {
     dispatch(handleModalToggle());
   };
 
+  const handleCheckoutClick = () => {
+    modalHandler();
+    alert("thank you for shopping with us!");
+  };
+ 
   const decrementHandler = (id) => {
     dispatch(removeCartItem(id));
   };
@@ -94,6 +98,7 @@ const App = () => {
         <Modal
           displayModal={modalToggle}
           closeModal={modalHandler}
+          handleCheckoutClick={handleCheckoutClick}
           header={"My Cart"}
           totalPrice={totalAmount}
           totalItems={cartItems.length}

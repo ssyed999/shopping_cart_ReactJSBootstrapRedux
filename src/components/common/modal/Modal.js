@@ -1,26 +1,18 @@
-import React, { useState } from "react";
+import React from "react";
 import Button from "react-bootstrap/Button";
 import { Modal as BootstrapModal } from "react-bootstrap";
-import { useAxios } from "../../../Hooks";
-import { Link, useNavigate } from "react-router-dom";
-import Toast from "../../common/toast/Toast";
 
 const Modal = (props) => {
-  const { response: thankYouResponse } = useAxios({
-    url: "/posts",
-  });
-  const { displayModal, closeModal, header, totalItems, children, totalPrice } =
-    props;
-  const [openMessage, setOpenMessage] = useState(false);
-  const navigate = useNavigate();
-  const handleCheckoutClick = () => {
-    setOpenMessage(true);
-    // navigate("/products");
-    // closeModal();
-  };
-  const handleClose = () => {
-    setOpenMessage(false);
-  };
+  const {
+    displayModal,
+    closeModal,
+    header,
+    totalItems,
+    children,
+    totalPrice,
+    handleCheckoutClick,
+  } = props;
+
   return (
     <BootstrapModal show={displayModal} onHide={closeModal} backdrop="static">
       <BootstrapModal.Header
@@ -54,11 +46,6 @@ const Modal = (props) => {
             <span>Start Shopping</span>
           )}
         </Button>
-        <Toast
-          open={openMessage}
-          handleClose={handleClose}
-          response={thankYouResponse?.thankYouResponse}
-        />
 
         <Button variant="primary" onClick={closeModal}>
           Continue Shopping
